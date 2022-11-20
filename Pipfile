@@ -10,6 +10,7 @@ atomicwrites = "*"
 behave-html-formatter = "*"
 webdriver-manager = "*"
 behave = "*"
+pytest-html = "*"
 
 [dev-packages]
 

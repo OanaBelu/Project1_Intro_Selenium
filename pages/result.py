@@ -14,12 +14,10 @@ class DuckDuckGoResultPage:
   SEARCH_INPUT = (By.ID, 'search_form_input')
 
   # Initializer
-
   def __init__(self, browser):
     self.browser = browser
 
   # Interaction Methods
-
   def result_link_titles(self):
     links = self.browser.find_elements(*self.RESULT_LINKS)
     titles = [link.text for link in links]

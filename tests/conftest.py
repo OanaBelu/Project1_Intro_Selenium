@@ -2,25 +2,21 @@
 This module contains shared fixtures.
 """
 
-import selenium.webdriver
 import pytest
 import selenium.webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-
 
 
 @pytest.fixture
 def browser():
-    # Initialize the ChromeDriver instance
-    s = Service(ChromeDriverManager().install())
-    browser = selenium.webdriver.Chrome(service=s)
 
-    # Make its calls wait up to 10 seconds for elements to appear
-    browser.implicitly_wait(10)
+  # Initialize the ChromeDriver instance
+  b = selenium.webdriver.Chrome()
 
-    # Return the WebDriver instance for the setup
-    yield browser
+  # Make its calls wait up to 10 seconds for elements to appear
+  b.implicitly_wait(10)
 
-    # Quit the WebDriver instance for the cleanup
-    browser.quit()
+  # Return the WebDriver instance for the setup
+  yield b
+
+  # Quit the WebDriver instance for the cleanup
+  b.quit()
